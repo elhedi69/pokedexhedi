@@ -4,14 +4,14 @@ import PokemonCard from "./components/PokemonCard";
 
 import { useState } from "react";
 
+import NavBar from "./components/NavBar";
+
 
 
 
 
 function App() {
-  const  [pokemonIndex, setCount] = useState(0);
-  const handleClickMore = () => {setCount(pokemonIndex + 1)};
-  const handleClickLess = () => {setCount(pokemonIndex - 1)};
+  const  [pokemonIndex, setPokemonIndex] = useState(0);
   const pokemonList = [
     {
 
@@ -54,13 +54,15 @@ function App() {
     },
     {
       name: "mew",
-      imgSrc: ""
     }
 ];
   return (
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      <button type= "button" onClick={handleClickLess}>Precedent</button><button type= "button" onClick={handleClickMore}>Suivant</button>
+      <NavBar pokemonIndex={pokemonIndex}
+      setPokemonIndex={setPokemonIndex}
+      pokemonList={pokemonList}
+      />
     </div>
   );
 }
