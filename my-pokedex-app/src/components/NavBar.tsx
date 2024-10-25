@@ -16,7 +16,7 @@ interface Pokemon {
           {pokemonList.map((Pokemon,index)=>(
             <button
             key={Pokemon.name}
-            onClick={()=>handleClick(index)}
+            onClick={()=>{Pokemon.name === "pikachu"? (handleClick(index),alert("pika pikachu !!!")): handleClick(index)}}
             >
               {Pokemon.name}
             </button>
